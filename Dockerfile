@@ -1,9 +1,13 @@
 FROM python:3.9-slim
 
+RUN adduser -D myuser
+USER myuser
+
 WORKDIR /app
 ADD . /app/
 
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV LANG C.UTF-8
 
 ENV PORT=8000
